@@ -1,5 +1,10 @@
 <!-- Navigation -->
-<app-header-user></app-header-user>
+<ng-container *ngIf="currentUser?.role === 'ROLE_ADMIN'; else userHeader">
+  <app-header-admin></app-header-admin>
+</ng-container>
+<ng-template #userHeader>
+  <app-header-user></app-header-user>
+</ng-template>
 
 <!-- Page Content -->
 <div class="container">
@@ -12,12 +17,11 @@
     <div class="section-content section-content-p30">
       <div class="container-fluid">
         <div class="row">
-          <div *ngFor = "let p of products" class="col-md-3">
-
+          <div *ngFor="let p of products" class="col-md-3">
             <div class="product-box">
-              <img src="{{p.urlImage}}">
-              <h2 class="card-text"> {{p.name}} </h2>
-              <div class="price"> {{p.price}}</div>
+              <img [src]="p.urlImage" alt="{{p.name}}">
+              <h2 class="card-text">{{p.name}}</h2>
+              <div class="price">{{p.price}}</div>
               <div class="product-show">
                 <a [routerLink]="['/cart/detailproduct', p.id]" class="primary-btn">Ver producto</a>
               </div>
@@ -27,8 +31,6 @@
       </div>
     </div>
   </div>
-
-
 </div>
 
 <!-- Footer -->
@@ -36,5 +38,4 @@
   <div class="container">
     <p class="m-0 text-center text-white">Copyright &copy; Spring Store 2024</p>
   </div>
-  <!-- /.container -->
 </footer>

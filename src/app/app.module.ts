@@ -21,6 +21,9 @@ import { RegistrationComponent } from './components/authetication/registration/r
 import { LoginComponent } from './components/authetication/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { authGuard } from './guards/auth.guard';
+import { HomeService } from './services/home.service';
+import { AuthenticationService } from './services/authentication.service';
+
 
 
 const routes : Routes = [
@@ -67,7 +70,7 @@ const routes : Routes = [
     
   ],
   providers: [
- 
+    HomeService, AuthenticationService
   ],
   bootstrap: [AppComponent]
 })

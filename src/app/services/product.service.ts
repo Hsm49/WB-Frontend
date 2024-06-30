@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Product } from '../common/product';
 import { HeaderService } from './header.service';
 import { SessionStorageService } from './session-storage.service';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import { SessionStorageService } from './session-storage.service';
 export class ProductService {
   constructor(private httpClient:HttpClient, private headerService : HeaderService ){}
   
-  private apiUrl : string = "http://localhost:8085/api/v1/admin/products";
+  private apiUrl : string = `${environment.apiUrl}/admin/products`;
   
 
   getProducts():Observable<Product[]>{

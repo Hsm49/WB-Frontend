@@ -4,12 +4,12 @@ import { DataPayment } from '../common/data-payment';
 import { Observable } from 'rxjs';
 import { UrlPaypalResponse } from '../common/url-paypal-response';
 import { HeaderService } from './header.service';
-
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class PaymentService {
-  private apiUrl:string='http://localhost:8085/api/v1/payments';
+  private apiUrl : string= `${environment.apiUrl}/payments`;
 
   constructor(private http:HttpClient, private headerService : HeaderService) { }
 
