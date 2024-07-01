@@ -29,9 +29,10 @@ export class AuthenticationService {
   login(userDto: Userdto): Observable<Jwtclient> {
     return this.httpClient.post<Jwtclient>(this.apiUrl + "/login", userDto).pipe(
       tap(jwtClient => {
-        const user = this.decodeToken(jwtClient.token);
+        const token = jwtClient.token.split(' ')[1]; // Eliminar el prefijo "Bearer"
+        const user = this.decodeToken(token);
         localStorage.setItem('currentUser', JSON.stringify(user));
-        localStorage.setItem('token', jwtClient.token); // Almacena el token en el localStorage sin "Bearer"
+        localStorage.setItem('token', token); // Almacenar el token sin "Bearer"
         this.currentUserSubject.next(user);
       })
     );
