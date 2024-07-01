@@ -1,0 +1,22 @@
+.navbar-nav {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.nav-item {
+  margin-right: 1rem; /* Espacio entre elementos */
+}
+
+.nav-link {
+  color: #ffffff; /* Color de texto normal */
+  font-weight: 500; /* Grosor del texto */
+  text-decoration: none; /* Quitar subrayado */
+  padding: 0.5rem 1rem; /* Espaciado interno */
+  transition: color 0.3s; /* Transición de color */
+}
+
+.nav-link:hover {
+  color: #1a1d1a; /* Color de texto al hacer hover */
+}
