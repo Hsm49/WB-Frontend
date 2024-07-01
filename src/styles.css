@@ -5,6 +5,9 @@
 body {
     padding-top: 56px;
   }
+
+
+
  .product-box img {
   width: 250px;
   padding-bottom: 50px;
@@ -32,7 +35,7 @@ a.primary-btn:hover{
   color:#585858
 }
 
-/*
+/* 
  * ----------------------------
  * Footer
  * ----------------------------
@@ -48,18 +51,5 @@ a.primary-btn:hover{
   background-color: black;
   color: white;
   text-align: center;
-
-}
-
-@font-face {
-    font-family: 'Merriweather-Regular';
-    src: url('./assets/fonts/Merriweather-Regular.ttf');
-}
-@font-face {
-    font-family: 'SourceSansPro-Regular';
-    src: url('./assets/fonts/SourceSansPro-Regular.otf');
-}
-
-.bg-primary {
-  background: linear-gradient(45deg, #1A1D1A, #8AB0AB) !important;
+  
 }

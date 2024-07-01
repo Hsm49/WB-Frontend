@@ -1,22 +1,27 @@
 <!-- Header User-->
-<app-header-user></app-header-user>
-
+<app-header-user></app-header-user> 
+ 
  <!-- Page Content -->
  <div class="container">
+
+    <div class="card mb-3">
       <div class="row no-gutters">
-        <div class="col-md-4">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h2>Registro</h2>
+
+          </div>
         </div>
-            <header class="jumbotron my-4">
-              <h1 class="display-3">Registro de usuario</h1>
-            </header>
       </div>
+    </div>
 	<form (ngSubmit)="register()">
       <div class="form-group">
         <label for="name">Nombre:</label> <input [(ngModel)]="name" type="text"
           class="form-control" id="name" name="name"
           placeholder="Ingrese su nombre" autocomplete="off">
       </div>
-
+	  
 	   <div class="form-group">
         <label for="surname">Apellido:</label> <input [(ngModel)]="surname" type="text"
           class="form-control" id="surname" name="surname"
