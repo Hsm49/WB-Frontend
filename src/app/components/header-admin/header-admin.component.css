@@ -1,0 +1,49 @@
+.navbar .fa-home {
+  color: #ffffff; /* Reemplaza con el color que desees */
+  margin-right: 2.5rem; /* Espacio entre el icono y el texto */
+  font-size: 2rem;
+}
+.navbar-brand{
+  margin-left: 1rem;
+  font-family: 'Merriweather-Regular';
+}
+
+/* Estilo para el dropdown y sus items */
+.navbar .dropdown-menu {
+  font-family: 'Merriweather-Regular';
+  background-color: #ffffff; /* Color de fondo del dropdown */
+  border: 1px solid #ddd; /* Borde del dropdown */
+  border-radius: 0.75rem; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.navbar .dropdown-item {
+  color: #343a40; /* Color del texto */
+  padding: 0.75rem 1.5rem; /* Espaciado interno */
+  transition: background-color 0.3s, color 0.3s; /* Transición suave */
+}
+
+.navbar .dropdown-item:hover {
+  background-color: #8AB0AB; /* Color de fondo al hacer hover */
+  color: #ffffff; /* Color del texto al hacer hover */
+}
+
+.navbar .dropdown-toggle::after {
+  margin-left: 0.5rem; /* Espacio entre el texto y el icono */
+}
+
+.navbar .dropdown-divider {
+  margin: 0.5rem 0; /* Margen alrededor del divisor */
+}
+
+/* Estilo para el enlace del dropdown */
+.navbar .nav-link.dropdown-toggle {
+  color: #ffffff; /* Color del texto del enlace */
+  padding: 0.5rem 1rem; /* Espaciado interno */
+}
+
+.navbar .nav-link.dropdown-toggle:hover {
+  color: #dcdcdc; /* Color del texto al hacer hover */
+}
+
+

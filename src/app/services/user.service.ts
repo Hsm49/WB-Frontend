@@ -16,8 +16,7 @@ export class UserService {
 
   getUserById(id:number):Observable<User>{
     //return this.httpClient.get<User>(this.apiUrl+'/'+id);
+    console.log({id})
     return this.httpClient.get<User>(`${this.apiUrl}/${id}`, { headers: this.headerService.headers });
   }
-
-
 }

@@ -9,6 +9,8 @@ import { OrderService } from 'src/app/services/order.service';
 import { PaymentService } from 'src/app/services/payment.service';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
 import { UserService } from 'src/app/services/user.service';
+import {jwtDecode} from "jwt-decode";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-sumary-order',
@@ -26,9 +28,9 @@ export class SumaryOrderComponent implements OnInit {
   orderProducts:OrderProduct [] = [];
   userId : number =0;
 
-  constructor(private cartService:CartService, 
-    private userService:UserService, 
-    private orderService:OrderService, 
+  constructor(private cartService:CartService,
+    private userService:UserService,
+    private orderService:OrderService,
     private paymentService:PaymentService,
     private sessionStorage:SessionStorageService
     ){}
@@ -38,7 +40,8 @@ export class SumaryOrderComponent implements OnInit {
     console.log('ngOnInit');
     this.items = this.cartService.convertToListFromMap();
     this.totalCart = this.cartService.totalCart();
-    this.userId = this.sessionStorage.getItem('token').id;
+    const token = this.sessionStorage.getItem('token');
+    this.userId = this.sessionStorage.getItem(token.id);
     this.getUserById(this.userId);
     setTimeout(
       ()=>{
@@ -74,11 +77,8 @@ export class SumaryOrderComponent implements OnInit {
         urlPayment = data.url;
         console.log('Respuesta exitosa...');
         window.location.href = urlPayment;
-      }    
+      }
     );
-
-
-
   }
 
   deleteItemCart(productId:number){
@@ -86,7 +86,6 @@ export class SumaryOrderComponent implements OnInit {
     this.items = this.cartService.convertToListFromMap();
     this.totalCart = this.cartService.totalCart();
   }
-
   getUserById(id:number){
     this.userService.getUserById(id).subscribe(
       data => {
@@ -97,5 +96,4 @@ export class SumaryOrderComponent implements OnInit {
       }
     );
   }
-
 }

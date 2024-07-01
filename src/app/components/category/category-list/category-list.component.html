@@ -4,13 +4,8 @@
 <div class="container">
     <!-- Page Heading/Breadcrumbs -->
     <h1 class="mt-4 mb-3">
-        Spring Store <small>Categorias</small>
+                CompraFacíl Store --- Categorias
     </h1>
-
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="">Home</a></li>
-        <li class="breadcrumb-item active">Ver Categorías</li>
-    </ol>
 
     <a class="btn btn-primary" routerLink="/admin/category/add"> Crear Categoría</a>
     <h2>Categorías</h2>
@@ -24,7 +19,7 @@
         </thead>
         <tbody *ngFor = "let c of categories">
             <tr>
-                <td>{{c.name }}</td>                
+                <td>{{c.name }}</td>
                 <td><button class="btn btn-warning" [routerLink]="['/admin/category/update', c.id]" >Editar</button> </td>
                 <td><button class="btn btn-danger" (click)="deleteCategoryById(c.id)">Eliminar</button>
             </tr>

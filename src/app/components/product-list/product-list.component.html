@@ -4,14 +4,9 @@
         <div class="container">
             <!-- Page Heading/Breadcrumbs -->
             <h1 class="mt-4 mb-3">
-                Spring Store <small>Productos</small>
+                CompraFacíl Store --- Productos
             </h1>
-        
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a routerLink="">Home</a></li>
-                <li class="breadcrumb-item active">Ver Productos</li>
-            </ol>
-        
+
             <a class="btn btn-primary" routerLink="/admin/product/addproduct" > Crear Producto</a>
             <h2>Productos</h2>
             <table class="table">
@@ -35,6 +30,6 @@
                         <td><button class="btn btn-danger" (click)="deleteProductById(producto.id)" >Eliminar</button>
                     </tr>
                 </tbody>
-            </table>        
+            </table>
         </div>
 
