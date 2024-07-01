@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://wb-backend-ewzw.onrender.com/api/v1'
+    apiUrl: 'https://wb-backend-1.onrender.com/api/v1'
   };
   
