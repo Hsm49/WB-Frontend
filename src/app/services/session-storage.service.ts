@@ -4,25 +4,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SessionStorageService {
-
-  constructor() { }
-
-  setItem(key : string, value : any){
-    sessionStorage.setItem(key,JSON.stringify(value));
+  setItem(key: string, value: string) {
+    sessionStorage.setItem(key, value);
   }
 
-  getItem(key:string){
-    const item = sessionStorage.getItem(key);
-    return item ? JSON.parse(item) : null;
+  getItem(key: string): string | null {
+    return sessionStorage.getItem(key);
   }
 
-  removeItem(key : string){
+  removeItem(key: string) {
     sessionStorage.removeItem(key);
   }
-
-  clear(){
-    sessionStorage.clear();
-  }
-
-
 }
