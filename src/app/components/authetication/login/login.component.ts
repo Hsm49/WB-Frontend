@@ -24,9 +24,10 @@ export class LoginComponent implements OnInit {
 
   login() {
     let userDto = new Userdto(this.username, this.password);
+    console.log('Intentando iniciar sesión con:', userDto); // Mensaje de depuración
     this.authentication.login(userDto).subscribe(
-      (response: any) => {
-        const token = response.token.split(' ')[1]; // Eliminar el prefijo "Bearer"
+      (response: any) => { // Suponiendo que response contiene el token
+        const token = response.token; // Asegúrate de obtener el token desde la respuesta
         const decoded: any = jwtDecode(token);
         console.log('Token recibido:', token);
         console.log('Token decodificado:', decoded);
