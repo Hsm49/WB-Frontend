@@ -31,6 +31,7 @@ export class AuthenticationService {
       tap(jwtClient => {
         const user = this.decodeToken(jwtClient.token);
         localStorage.setItem('currentUser', JSON.stringify(user));
+        localStorage.setItem('token', jwtClient.token); // Almacena el token en el localStorage sin "Bearer"
         this.currentUserSubject.next(user);
       })
     );
@@ -38,6 +39,7 @@ export class AuthenticationService {
 
   logout() {
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('token'); // Elimina el token del localStorage
     this.currentUserSubject.next(null);
   }
 

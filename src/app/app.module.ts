@@ -23,6 +23,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { authGuard } from './guards/auth.guard';
 import { HomeService } from './services/home.service';
 import { AuthenticationService } from './services/authentication.service';
+import { AuthInterceptor } from './services/auth.interceptor';
 
 
 
@@ -70,6 +71,11 @@ const routes : Routes = [
     
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
     HomeService, AuthenticationService
   ],
   bootstrap: [AppComponent]
