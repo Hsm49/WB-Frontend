@@ -8,15 +8,12 @@ import { SessionStorageService } from 'src/app/services/session-storage.service'
   styleUrls: ['./logout.component.css']
 })
 export class LogoutComponent implements OnInit {
-constructor(private sessionStorage : SessionStorageService, private router:Router){
-
-}
+  constructor(private sessionStorage: SessionStorageService, private router: Router) {}
 
   ngOnInit(): void {
-    console.log('LogoutComponent: '+ this.sessionStorage.getItem('token'))
+    console.log('LogoutComponent:', this.sessionStorage.getItem('token'));
     this.sessionStorage.removeItem('token');
-    console.log('LogoutComponent eliminado: '+ this.sessionStorage.getItem('token'))
+    console.log('LogoutComponent eliminado:', this.sessionStorage.getItem('token'));
     this.router.navigate(['/']);
   }
-
 }

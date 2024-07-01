@@ -8,15 +8,11 @@ import { SessionStorageService } from 'src/app/services/session-storage.service'
 })
 export class HeaderAdminComponent {
 
-  constructor(private sessionStorage: SessionStorageService){
-    
+  constructor(private sessionStorage: SessionStorageService) {}
 
+  removeSession() {
+    console.log('HeaderAdminComponent:', this.sessionStorage.getItem('token'));
+    this.sessionStorage.removeItem('token');
+    console.log('HeaderAdminComponent:', this.sessionStorage.getItem('token'));
   }
-
-  removeSession(){
-    console.log('HeaderAdminComponent:' +sessionStorage.getItem('token'));
-    sessionStorage.removeItem('token');
-    console.log('HeaderAdminComponent: '+sessionStorage.getItem('token'));
-  }
-
 }

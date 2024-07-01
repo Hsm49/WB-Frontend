@@ -5,6 +5,7 @@ import { Category } from 'src/app/common/category';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-product-add',
@@ -38,9 +39,13 @@ export class ProductAddComponent implements OnInit{
   ngOnInit(): void {
     this.getCategories();
     this.getProductById();
-    this.user = this.sessionStorage.getItem('token').id;
-    this.userId = this.user.toString();
+    const token = this.sessionStorage.getItem('token');
+    if (token) {
+      const decoded: any = jwtDecode(token);
+      this.userId = decoded.sub;
+    }
   }
+
   addProduct(){
     const formData = new FormData();
     formData.append('id',this.id.toString());

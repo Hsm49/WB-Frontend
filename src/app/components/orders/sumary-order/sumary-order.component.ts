@@ -9,6 +9,7 @@ import { OrderService } from 'src/app/services/order.service';
 import { PaymentService } from 'src/app/services/payment.service';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
 import { UserService } from 'src/app/services/user.service';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-sumary-order',
@@ -34,17 +35,20 @@ export class SumaryOrderComponent implements OnInit {
     ){}
 
 
-  ngOnInit(): void {
-    console.log('ngOnInit');
-    this.items = this.cartService.convertToListFromMap();
-    this.totalCart = this.cartService.totalCart();
-    this.userId = this.sessionStorage.getItem('token').id;
-    this.getUserById(this.userId);
-    setTimeout(
-      ()=>{
+    ngOnInit(): void {
+      console.log('ngOnInit');
+      this.items = this.cartService.convertToListFromMap();
+      this.totalCart = this.cartService.totalCart();
+      const token = this.sessionStorage.getItem('token');
+      if (token) {
+        const decoded: any = jwtDecode(token);
+        this.userId = decoded.sub;
+        this.getUserById(this.userId);
+      }
+      setTimeout(() => {
         this.sessionStorage.removeItem('token');
       }, 600000);
-  }
+    }
 
   generateOrder(){
     this.items.forEach(

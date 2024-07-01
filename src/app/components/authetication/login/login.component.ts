@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   login() {
     let userDto = new Userdto(this.username, this.password);
     this.authentication.login(userDto).subscribe(
-      (response: any) => { // Suponiendo que response contiene el token
+      (response: any) => {
         const token = response.token.split(' ')[1]; // Eliminar el prefijo "Bearer"
         const decoded: any = jwtDecode(token);
         console.log('Token recibido:', token);
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         }
 
         // Almacena el token en el almacenamiento de sesión
-        sessionStorage.setItem('token', token);
+        this.sessionStorage.setItem('token', token);
       },
       error => {
         console.error('Error durante el inicio de sesión:', error);
